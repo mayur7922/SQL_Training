@@ -1,0 +1,16 @@
+Databases were first created for some business. Databases were first organized into tree-like structures using hierarchical and network models. Later these tree structures got transformed into database management systems (DBMS) with the concept of arranging data in form of tables.
+
+Relational databases organize data into interrelated tables, using a structured format that defines rows and columns within a schema, and rely on SQL (Structured Query Language) for structured querying. Non-Relational databases databases offer flexible storage solutions that can accommodate various data types such as documents, key-value pairs, column-family stores, and graph structures.
+
+Relational databases exist in the form of tables and if there is any kind of association among different tables then it can be shown with the help of foreign key. The problem with the relational databases is that they can only store structured data and their schema can't be changes later on, that's why non relational databases came into the existance which solves the above two problems.
+
+Database management system is a software which is used to manage the database. DBMS provides an interface to perform various operations like database creation, storing data in it, updating data, creating a table in the database and a lot more.
+
+SQL vs NoSQL
+SQL
+
+SQL databases stores data in the format of tables. They have rigid schema. They can only store structured data. They support ACID properties. They support vertical scaling. JOIN keyword is used in this databases. For ex. MySQL
+
+SQL
+
+NoSQL databases stores data in the form of key value pairs in documents. They have flexible schema. They can store all type of data such as structured, unstructured and semi-structured data. They does not support ACID properties. They support horizontal scaling. JOIN keyword is not used in this databases. For ex. MongoDB, DynamoDB

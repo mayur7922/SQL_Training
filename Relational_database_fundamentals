@@ -1,0 +1,17 @@
+Database design concepts includes guidelines to create databases. Entity-Relationship (ER) model allows users to create database designs by using entities, attributes and relationships among them. Primary key is non-null entry in the table which helps to uniquely identify any row. Using foreign keys we can form relationships among different tables.
+
+Normalisation
+Normalization is the process of organizing the data in the database. Normalization is used to minimize the redundancy from a relation or set of relations. It is also used to eliminate undesirable characteristics like Insertion, Update, and Deletion Anomalies. Normalization divides the larger table into smaller and links them using relationships.
+
+1NF
+1NF states that all columns should be atomic i.e. each column should not be breakable further.
+
+2NF
+2NF states that all non prime attributes should be fully dependent on primary key. There should not be any kind of partial dependency in the table.
+
+3NF
+3NF states that, there should not be any kind of transitivity in the table. i.e. a -> b, b -> c should not satisfy.
+
+BCNF
+
+BCNF states that non-prime attributes should not find any prime attribute.

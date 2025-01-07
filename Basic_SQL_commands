@@ -1,0 +1,116 @@
+Data Definition Language (DDL): CREATE, ALTER, DROP
+Data Manipulation Language (DML): SELECT, INSERT, UPDATE, DELETE
+Data Control Language (DCL): GRANT, REVOKE
+Transaction Control Language (TCL): BEGIN, COMMIT, ROLLBACK
+
+
+-- creating a new database demo
+create database if not exists demo;
+
+-- switching to the newly created database demo
+use demo;
+
+-- listing all the tables
+show tables;
+
+-- creating a new table product
+create table product(
+	product_id int not null primary key,
+    product_name varchar(60),
+    price int,
+    stock int
+);
+
+-- inserting data in the table product
+insert into product
+values 
+(1, 'Pen', 10, 60),
+(2, 'Notebook', 20, 120),
+(3, 'Eraser', 5, 200),
+(4, 'Pencil', 8, 150),
+(5, 'Ruler', 12, 80),
+(6, 'Marker', 15, 70),
+(7, 'Highlighter', 18, 90),
+(8, 'Stapler', 25, 50),
+(9, 'Scissors', 22, 40),
+(10, 'Glue', 6, 180),
+(11, 'Calculator', 35, 30),
+(12, 'Sharpener', 3, 300),
+(13, 'Paper Clips', 2, 500),
+(14, 'Binder', 14, 65),
+(15, 'Folder', 11, 110),
+(16, 'Whiteboard', 40, 15),
+(17, 'Chalk', 4, 200),
+(18, 'Sticky Notes', 7, 250),
+(19, 'Tape', 9, 140),
+(20, 'Desk Organizer', 20, 60),
+(21, 'Printer Paper', 25, 150),
+(22, 'Envelope', 3, 400),
+(23, 'Post-it Flags', 6, 300),
+(24, 'Rubber Bands', 1, 800),
+(25, 'Paper Cutter', 30, 45),
+(26, 'File Holder', 12, 100),
+(27, 'Index Cards', 4, 350),
+(28, 'Label Maker', 50, 20),
+(29, 'Marker Set', 40, 35),
+(30, 'Drafting Compass', 15, 80),
+(31, 'Whiteboard Marker', 5, 200),
+(32, 'Correction Tape', 8, 150),
+(33, 'Sticky Tabs', 6, 180),
+(34, 'File Folder', 10, 120),
+(35, 'Staple Remover', 5, 220),
+(36, 'Label Sheets', 20, 70),
+(37, 'Clipboard', 12, 110),
+(38, 'Puncher', 18, 85),
+(39, 'Board Eraser', 7, 140),
+(40, 'Dry Erase Board', 45, 25),
+(41, 'Refill Ink Pen', 12, 150),
+(42, 'Whiteboard Cleaner', 8, 100),
+(43, 'Laser Printer', 150, 10),
+(44, 'Shredder', 120, 20),
+(45, 'Storage Box', 25, 55),
+(46, 'Magnifying Glass', 10, 85),
+(47, 'Paper Tray', 18, 90),
+(48, 'Wall Clock', 35, 50),
+(49, 'Desk Lamp', 45, 45),
+(50, 'Monitor Stand', 30, 60);
+
+-- printing entries from the table product
+select * from product;
+
+-- adding new column isAvailable in the product table
+alter table product
+add isAvailable int;
+
+-- updating the value of the column isAvailable
+update product
+set isAvailable = 1;
+
+-- deleting data from product, but its schema stays as it is
+truncate table product;
+
+-- dropping the table product
+DROP table product;
+
+-- dropping the database demo
+DROP DATABASE demo;
+
+
+Grant:
+ 
+SQL Grant command is specifically used to provide privileges to database objects for a user. This command also allows users to grant permissions to other users too. 
+
+Syntax: 
+
+grant privilege_name on object_name
+to {user_name | public | role_name} 
+
+
+Revoke : 
+
+Revoke command withdraw user privileges on database objects if any granted. It does operations opposite to the Grant command. When a privilege is revoked from a particular user U, then the privileges granted to all other users by user U will be revoked. 
+
+Syntax: 
+
+revoke privilege_name on object_name
+from {user_name | public | role_name}
