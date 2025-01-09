@@ -40,7 +40,8 @@ CREATE TABLE Venue (
     ID int not null primary key,
     Name VARCHAR(255),
     Location VARCHAR(255),
-    organizer_ID int 
+    organizer_ID int,
+    FOREIGN KEY (organizer_ID) REFERENCES Organizer(ID)
 );
 
 CREATE TABLE Artist (
@@ -48,7 +49,8 @@ CREATE TABLE Artist (
     Name VARCHAR(255),
     Email VARCHAR(255),
     Fees money,
-    organizer_ID int 
+    organizer_ID int,
+    FOREIGN KEY (organizer_ID) REFERENCES Organizer(ID)
 );
 
 CREATE TABLE Event (
@@ -56,7 +58,9 @@ CREATE TABLE Event (
     Name VARCHAR(255),
     Description VARCHAR(255),
     artist_ID int,
-    venue_ID int 
+    venue_ID int,
+    FOREIGN KEY (artist_ID) REFERENCES Artist(ID),
+    FOREIGN KEY (venue_ID) REFERENCES Venue(ID)
 );
 
 CREATE TABLE User (
@@ -64,14 +68,17 @@ CREATE TABLE User (
     Name VARCHAR(255),
     Age int,
     Email VARCHAR(255),
-    event_ID int 
+    event_ID int,
+    FOREIGN KEY (event_ID) REFERENCES Event(ID)
 );
 
 CREATE TABLE Staff (
     ID int not null primary key,
     Name VARCHAR(255),
     event_ID int,
-    organizer_ID int 
+    organizer_ID int,
+    FOREIGN KEY (event_ID) REFERENCES Event(ID),
+    FOREIGN KEY (organizer_ID) REFERENCES Organizer(ID)
 );
 
 CREATE TABLE Ticket (
@@ -79,12 +86,16 @@ CREATE TABLE Ticket (
     count int,
     user_ID int,
     event_ID int,
-    payment_ID int 
+    payment_ID int,
+    FOREIGN KEY (user_ID) REFERENCES User(ID),
+    FOREIGN KEY (event_ID) REFERENCES Event(ID),
+    FOREIGN KEY (payment_ID) REFERENCES Payment(ID)
 );
 
 CREATE TABLE Payment (
     ID int not null primary key,
     method VARCHAR(255),
     Amount int,
-    user_ID int
+    user_ID int,
+    FOREIGN KEY (user_ID) REFERENCES User(ID)
 );
